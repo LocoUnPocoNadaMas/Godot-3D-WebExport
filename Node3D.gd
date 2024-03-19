@@ -1,7 +1,7 @@
 extends CharacterBody3D
 
 
-var scene: PackedScene = ResourceLoader.load("res://Barbarian.glb")
+var scene: PackedScene = ResourceLoader.load("res://Barbarian.fbx")
 
 
 const SPEED = 5.0
