@@ -1,6 +1,5 @@
-[gd_scene load_steps=7 format=3 uid="uid://cvpd7gsekwdis"]
+[gd_scene load_steps=6 format=3 uid="uid://cvpd7gsekwdis"]
 
-[ext_resource type="PackedScene" uid="uid://clkntt0tlxtd1" path="res://Barbarian.glb" id="1_6et57"]
 [ext_resource type="Script" path="res://Node3D.gd" id="1_b0lym"]
 
 [sub_resource type="CapsuleShape3D" id="CapsuleShape3D_8mc0o"]
@@ -19,8 +18,6 @@ albedo_color = Color(0, 0.486275, 0.0313726, 1)
 
 [node name="Node3D" type="CharacterBody3D" parent="."]
 script = ExtResource("1_b0lym")
-
-[node name="Barbarian" parent="Node3D" instance=ExtResource("1_6et57")]
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="Node3D"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.2, 0)

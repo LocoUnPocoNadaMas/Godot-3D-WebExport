@@ -1,12 +1,19 @@
 extends CharacterBody3D
 
 
+var scene: PackedScene = ResourceLoader.load("res://Barbarian.glb")
+
+
 const SPEED = 5.0
 const JUMP_VELOCITY = 4.5
 
 # Get the gravity from the project settings to be synced with RigidBody nodes.
 var gravity = ProjectSettings.get_setting("physics/3d/default_gravity")
 
+
+func _ready() -> void:
+	var instance = scene.instantiate()
+	add_child(instance)
 
 func _physics_process(delta):
 	# Add the gravity.
