@@ -1,0 +1,44 @@
+[gd_scene load_steps=7 format=3 uid="uid://cvpd7gsekwdis"]
+
+[ext_resource type="PackedScene" uid="uid://clkntt0tlxtd1" path="res://Barbarian.glb" id="1_6et57"]
+[ext_resource type="Script" path="res://Node3D.gd" id="1_b0lym"]
+
+[sub_resource type="CapsuleShape3D" id="CapsuleShape3D_8mc0o"]
+height = 2.4
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_wjbcu"]
+size = Vector3(1, 0.1, 1)
+
+[sub_resource type="PlaneMesh" id="PlaneMesh_a1icv"]
+size = Vector2(10, 10)
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_6hqkh"]
+albedo_color = Color(0, 0.486275, 0.0313726, 1)
+
+[node name="Main" type="Node"]
+
+[node name="Node3D" type="CharacterBody3D" parent="."]
+script = ExtResource("1_b0lym")
+
+[node name="Barbarian" parent="Node3D" instance=ExtResource("1_6et57")]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Node3D"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.2, 0)
+shape = SubResource("CapsuleShape3D_8mc0o")
+
+[node name="Camera3D" type="Camera3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.91336, 7.29529)
+
+[node name="StaticBody3D" type="StaticBody3D" parent="."]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="StaticBody3D"]
+transform = Transform3D(10, 0, 0, 0, 10, 0, 0, 0, 10, 0, -0.5, 0)
+shape = SubResource("BoxShape3D_wjbcu")
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="StaticBody3D"]
+mesh = SubResource("PlaneMesh_a1icv")
+skeleton = NodePath("../..")
+surface_material_override/0 = SubResource("StandardMaterial3D_6hqkh")
+
+[node name="DirectionalLight3D" type="DirectionalLight3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 0.812816, 0.58252, 0, -0.58252, 0.812816, 0, 3.89697, 5.90407)
